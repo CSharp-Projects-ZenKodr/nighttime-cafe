@@ -488,10 +488,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 20
   jumpForce: 2
-  speed: 5
+  maxSpeed: 5
   maxJumps: 2
   groundCheck: {fileID: 440701929}
   camera: {fileID: 1687258585}
+  accelerationModifier: 0.2
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
