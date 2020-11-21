@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +69,9 @@
       <updated>1605884216253</updated>
       <workItem from="1605884241519" duration="679000" />
       <workItem from="1605890565653" duration="1465000" />
-      <workItem from="1605892289505" duration="2867000" />
+      <workItem from="1605892289505" duration="2985000" />
+      <workItem from="1605895333568" duration="102000" />
+      <workItem from="1605956431464" duration="853000" />
     </task>
     <servers />
   </component>
@@ -86,5 +88,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1605894975852" />
+    <state x="648" y="254" key="search.everywhere.popup" timestamp="1605895340765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="648" y="254" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605895340765" />
   </component>
 </project>

@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private float _speed;
     private float _xRotation;
     private float _yaw;
+    private Vector3 _lastNonNullInput;
 
     // Unity event functions
     private void Start()
@@ -63,8 +64,6 @@ public class PlayerMovement : MonoBehaviour
     // Moving the player
     private void Move()
     {
-        _direction = _pos.forward * _input.z + _pos.right * _input.x;
-
         _rb.velocity = _direction * _speed + Vector3.up * _rb.velocity.y;
     }
 
@@ -86,6 +85,12 @@ public class PlayerMovement : MonoBehaviour
                 _speed -= accelerationModifier;
                 break;
         }
+
+        var forward = _pos.forward;
+        var right = _pos.right;
+        _direction = _movementState == 3
+            ? forward * _lastNonNullInput.z + right * _lastNonNullInput.x
+            : forward * _input.z + right * _input.x;
     }
 
     // Camera movement
@@ -122,6 +127,11 @@ public class PlayerMovement : MonoBehaviour
         var value = context.ReadValue<Vector2>();
 
         _input = new Vector3(value.x, 0f, value.y);
+
+        if (_input != Vector3.zero)
+        {
+            _lastNonNullInput = _input;
+        }
     }
 
     [UsedImplicitly]
