@@ -5,15 +5,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float jumpForce = 2f;
+    public float defaultJumpForce = 2f;
     public float maxSpeed = 5f;
     public int maxJumps = 2;
     public Transform groundCheck;
 
     public float accelerationModifier = 0.5f;
+    public float secondJumpModifier = 2f;
+
+    public float sprintModifier = 3f;
     private Vector3 _direction;
     private Vector3 _input;
     private int _jumpCount;
+    private float _jumpForce;
     private Vector3 _lastNonNullInput;
 
     // 0 for standing still, 1 for acceleration, 2 for maximum speed, 3 for deceleration
@@ -37,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (IsGrounded()) _jumpCount = maxJumps;
 
+        _jumpForce = defaultJumpForce;
+        if (_jumpCount < maxJumps)
+            _jumpForce += secondJumpModifier;
+
         // At the end reset previous input variable
         _previousInput = _input;
     }
@@ -49,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         _jumpCount--;
     }
 
@@ -117,5 +125,17 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         if (_jumpCount > 0) Jump();
+    }
+
+    [UsedImplicitly]
+    public void OnSprintOn(InputAction.CallbackContext context)
+    {
+        maxSpeed += sprintModifier;
+    }
+
+    [UsedImplicitly]
+    public void OnSprintOff(InputAction.CallbackContext context)
+    {
+        maxSpeed -= sprintModifier;
     }
 }

@@ -28,6 +28,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "SprintOn",
+                    "type": "Button",
+                    "id": "a7d822d5-4f04-4295-804b-ac45e16fbf1b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SprintOff",
+                    "type": "Button",
+                    "id": "6586e218-f71f-4ceb-b7b5-e7c548eabd47",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -193,6 +209,50 @@
                     "processors": "",
                     "groups": "Mouse & Keyboard",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b86cba73-667f-4845-aaab-38f10f9633c0",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SprintOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aaa692b8-ae78-4dcf-ad60-3f6ba3c0c19f",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "SprintOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1cf5c45c-81f6-467c-9640-f531eb8190f6",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SprintOff",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "acd2a57d-34e2-448a-9ef0-413c37fa50ea",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "SprintOff",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
