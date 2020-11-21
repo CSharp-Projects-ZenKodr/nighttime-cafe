@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,6 +99,7 @@
       <workItem from="1605957402885" duration="1632000" />
       <workItem from="1605976270237" duration="48000" />
       <workItem from="1605977627079" duration="382000" />
+      <workItem from="1605981024108" duration="59000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed smooth deceleration">
       <created>1605957318643</created>
@@ -140,6 +139,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1605966920537" />
+    <state x="730" y="216" key="Rider.ProjectTemplateDialog.Size" timestamp="1605981082181">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="730" y="216" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1605981082181" />
     <state x="727" y="244" key="RiderGenerateDialog" timestamp="1605977747970">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
