@@ -1,8 +1,9 @@
 ﻿using JetBrains.Annotations;
+using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public float defaultJumpForce = 2f;
     public float maxSpeed = 5f;
@@ -34,8 +35,11 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    [Client]
     private void Update()
     {
+        if (!hasAuthority) return;
+        
         ChangeMovementState();
 
         if (IsGrounded()) _jumpCount = maxJumps;
