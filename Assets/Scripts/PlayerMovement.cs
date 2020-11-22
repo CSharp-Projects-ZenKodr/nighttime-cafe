@@ -1,5 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -107,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_input != Vector3.zero && _previousInput == Vector3.zero) _movementState = 1;
         if (_input == Vector3.zero && _previousInput != Vector3.zero) _movementState = 3;
-        if (_movementState == 1 && Math.Abs(_speed - maxSpeed) < tolerance) _movementState = 2;
+        if (_movementState == 1 && Mathf.Abs(_speed - maxSpeed) < tolerance) _movementState = 2;
         if (_movementState == 3 && _speed < tolerance) _movementState = 0;
     }
 

@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="" />
+    <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,6 +103,7 @@
       <workItem from="1605976270237" duration="48000" />
       <workItem from="1605977627079" duration="382000" />
       <workItem from="1605981024108" duration="59000" />
+      <workItem from="1606052623416" duration="104000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed smooth deceleration">
       <created>1605957318643</created>
