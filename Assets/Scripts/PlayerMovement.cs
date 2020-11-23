@@ -34,9 +34,10 @@ public class PlayerMovement : NetworkBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    [Client]
     private void Update()
     {
-        if (!hasAuthority) return;
+        if (!isLocalPlayer) return;
         
         ChangeMovementState();
 
@@ -50,9 +51,10 @@ public class PlayerMovement : NetworkBehaviour
         _previousInput = _input;
     }
 
+    [Client]
     private void FixedUpdate()
     {
-        if (!hasAuthority) return;
+        if (!isLocalPlayer) return;
         
         SpeedChange();
         Move();
