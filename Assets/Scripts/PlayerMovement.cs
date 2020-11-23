@@ -26,7 +26,6 @@ public class PlayerMovement : NetworkBehaviour
     private Vector3 _previousInput;
     private Rigidbody _rb;
     private float _speed;
-    private float _xRotation;
 
     public override void OnStartLocalPlayer()
     {
