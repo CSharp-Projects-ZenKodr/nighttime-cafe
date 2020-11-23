@@ -1,8 +1,9 @@
 ﻿using JetBrains.Annotations;
+using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CameraMovement : MonoBehaviour
+public class CameraMovement : NetworkBehaviour
 {
     public float sensitivity = 20f;
     public Transform player;

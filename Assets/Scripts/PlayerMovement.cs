@@ -28,14 +28,13 @@ public class PlayerMovement : NetworkBehaviour
     private float _speed;
     private float _xRotation;
 
-    private void Start()
+    public override void OnStartLocalPlayer()
     {
         _rb = GetComponent<Rigidbody>();
         _pos = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    [Client]
     private void Update()
     {
         if (!hasAuthority) return;
@@ -54,6 +53,8 @@ public class PlayerMovement : NetworkBehaviour
 
     private void FixedUpdate()
     {
+        if (!hasAuthority) return;
+        
         SpeedChange();
         Move();
     }
