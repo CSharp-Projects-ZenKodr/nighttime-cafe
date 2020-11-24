@@ -261,7 +261,6 @@
           <e p="Version.txt" t="Include" />
         </e>
         <e p="Scripts" t="Include">
-          <e p="CameraMovement.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
         </e>
