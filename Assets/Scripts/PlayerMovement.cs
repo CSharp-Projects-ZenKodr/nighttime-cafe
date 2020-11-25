@@ -9,6 +9,7 @@ public class PlayerMovement : NetworkBehaviour
     private PlayerInput _controls;
     private Vector3 _input;
     private Vector3 _previousInput;
+    private Vector3 _velocity;
 
     private Rigidbody _rb;
 
@@ -16,7 +17,10 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
-        CmdMove();
+        _velocity = _input * speed + Vector3.up * _rb.velocity.y;
+
+        if (_rb.velocity != _velocity)
+            CmdMove(_velocity);
 
         _previousInput = _input;
     }
@@ -60,9 +64,9 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     [Command]
-    private void CmdMove()
+    private void CmdMove(Vector3 velocity)
     {
-        _rb.velocity = _input * speed + Vector3.up * _rb.velocity.y;
+        _rb.velocity = velocity;
     }
 
     [Command]
