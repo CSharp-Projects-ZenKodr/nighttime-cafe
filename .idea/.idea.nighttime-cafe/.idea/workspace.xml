@@ -23,11 +23,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/50-Mirror__Network Manager-NewNetworkManager.cs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/50-Mirror__Network Manager-NewNetworkManager.cs.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/52-Mirror__Network Behaviour-NewNetworkBehaviour.cs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/52-Mirror__Network Behaviour-NewNetworkBehaviour.cs.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/53-Mirror__Network Observer-NewNetworkObserver.cs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/53-Mirror__Network Observer-NewNetworkObserver.cs.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/54-Mirror__Network Room Manager-NewNetworkRoomManager.cs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/54-Mirror__Network Room Manager-NewNetworkRoomManager.cs.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/55-Mirror__Network Room Player-NewNetworkRoomPlayer.cs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/55-Mirror__Network Room Player-NewNetworkRoomPlayer.cs.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInput.inputactions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInput.inputactions.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +61,8 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement1.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       </list>
     </option>
@@ -127,6 +141,9 @@
       <workItem from="1606148510061" duration="4491000" />
       <workItem from="1606154802078" duration="2948000" />
       <workItem from="1606229369916" duration="3409000" />
+      <workItem from="1606234036664" duration="223000" />
+      <workItem from="1606234561694" duration="389000" />
+      <workItem from="1606320812430" duration="3925000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed smooth deceleration">
       <created>1605957318643</created>
@@ -170,10 +187,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="lol" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1606154978856">
+    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1606322675015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1606154978856" />
+    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1606322675015" />
     <state x="630" y="340" key="LayersDialog" timestamp="1606068668841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

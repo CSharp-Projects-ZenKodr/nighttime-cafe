@@ -3,35 +3,22 @@ using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    public float speed = 5f;
+    public Transform groundCheck;
+    public float jumpForce = 3f;
     private PlayerInput _controls;
     private Vector3 _input;
     private Vector3 _previousInput;
-    public float speed = 5f;
 
     private Rigidbody _rb;
-    
-    private void OnMove(Vector2 value)
-    {
-        var input = new Vector3(value.x, 0f, value.y);
-        
-        if (input != _previousInput)
-            CmdMovementInput(input);
-
-        _previousInput = _input;
-    }
-
-    public override void OnStartLocalPlayer()
-    {
-        _rb = GetComponent<Rigidbody>();
-        
-        _controls = new PlayerInput();
-        _controls.Enable();
-        _controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
-    }
 
     private void Update()
     {
-        Move();
+        if (!isLocalPlayer) return;
+
+        CmdMove();
+
+        _previousInput = _input;
     }
 
     private void OnDisable()
@@ -39,10 +26,49 @@ public class PlayerMovement : NetworkBehaviour
         _controls.Disable();
     }
 
-    [Server]
-    private void Move()
+    private void OnMove(Vector2 value)
+    {
+        if (!isLocalPlayer) return;
+        
+        var input = new Vector3(value.x, 0f, value.y);
+
+        if (input != _previousInput)
+            CmdMovementInput(input);
+    }
+
+    private void OnJump()
+    {
+        if (!isLocalPlayer || !IsGrounded()) return;
+        
+        CmdJump();
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        _rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
+
+        _controls = new PlayerInput();
+        _controls.Enable();
+        _controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
+        _controls.Player.Jump.performed += ctx => OnJump();
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, 0.15f, LayerMask.GetMask("Ground"));
+    }
+
+    [Command]
+    private void CmdMove()
     {
         _rb.velocity = _input * speed + Vector3.up * _rb.velocity.y;
+    }
+
+    [Command]
+    private void CmdJump()
+    {
+        _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
     [Command]
