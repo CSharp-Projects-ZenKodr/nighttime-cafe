@@ -24,8 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +35,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtilities.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mirror/Runtime/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -133,6 +133,9 @@
       <workItem from="1606410473490" duration="60000" />
       <workItem from="1606410638460" duration="132000" />
       <workItem from="1606410850560" duration="261000" />
+      <workItem from="1606411286346" duration="129000" />
+      <workItem from="1606412037374" duration="215000" />
+      <workItem from="1606412357587" duration="815000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed smooth deceleration">
       <created>1605957318643</created>
