@@ -10,6 +10,7 @@ public class PlayerMovement : NetworkBehaviour
     private Vector3 _input;
     private Vector3 _previousInput;
     private Vector3 _velocity;
+    private Transform _pos;
 
     private Rigidbody _rb;
 
@@ -17,7 +18,8 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
-        _velocity = _input * speed + Vector3.up * _rb.velocity.y;
+        var direction = _pos.forward * _input.z + _pos.right * _input.x;
+        _velocity = direction * speed + Vector3.up * _rb.velocity.y;
 
         if (_rb.velocity != _velocity)
             CmdMove(_velocity);
@@ -50,6 +52,7 @@ public class PlayerMovement : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         _rb = GetComponent<Rigidbody>();
+        _pos = GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
 
         _controls = new PlayerInput();
