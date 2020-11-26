@@ -261,8 +261,11 @@
           <e p="Version.txt" t="Include" />
         </e>
         <e p="Scripts" t="Include">
-          <e p="PlayerInput.cs" t="Include" />
-          <e p="PlayerMovement.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="CameraMovement.cs" t="Include" />
+            <e p="PlayerInput.cs" t="Include" />
+            <e p="PlayerMovement.cs" t="Include" />
+          </e>
         </e>
         <e p="ScriptTemplates" t="Include">
           <e p="50-Mirror__Network Manager-NewNetworkManager.cs.txt" t="Include" />
