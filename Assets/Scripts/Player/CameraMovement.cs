@@ -21,7 +21,7 @@ namespace Player
             if (!isLocalPlayer) return;
 
             if (_input != _previousInput)
-                CmdLook();
+                CmdLook(Pitch, Yaw);
 
             _previousInput = _input;
         }
@@ -40,18 +40,24 @@ namespace Player
         {
             if (!isLocalPlayer) return;
 
-            _input = value;
+            CmdMovementInput(value);
         }
 
         [Command]
-        private void CmdLook()
+        private void CmdLook(float pitch, float yaw)
         {
-            _xRotation -= Pitch;
+            _xRotation -= pitch;
 
             _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
             camera.localRotation = Quaternion.Euler(Vector3.right * _xRotation);
-            _pos.Rotate(Vector3.up * Yaw);
+            _pos.Rotate(Vector3.up * yaw);
+        }
+
+        [Command]
+        private void CmdMovementInput(Vector2 input)
+        {
+            _input = input;
         }
     }
 }

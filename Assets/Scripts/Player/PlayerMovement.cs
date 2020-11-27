@@ -28,11 +28,6 @@ namespace Player
             _previousInput = _input;
         }
 
-        private void OnDisable()
-        {
-            _controls.Disable();
-        }
-
         private void OnMove(Vector2 value)
         {
             if (!isLocalPlayer) return;
