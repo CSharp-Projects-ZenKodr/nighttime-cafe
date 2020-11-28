@@ -10,20 +10,14 @@ namespace Player
         private PlayerInput _controls;
         private Vector2 _input;
         private Transform _pos;
-        private Vector2 _previousInput;
         private float _xRotation;
-        private float _yaw;
         private float Pitch => _input.y * sensitivity * Time.deltaTime;
         private float Yaw => _input.x * sensitivity * Time.deltaTime;
 
         private void Update()
         {
             if (!isLocalPlayer) return;
-
-            if (_input != _previousInput)
-                CmdLook(Pitch, Yaw);
-
-            _previousInput = _input;
+            Look(Pitch, Yaw);
         }
 
         public override void OnStartLocalPlayer()
@@ -34,17 +28,22 @@ namespace Player
             _controls = new PlayerInput();
             _controls.Enable();
             _controls.Player.Look.performed += ctx => OnLook(ctx.ReadValue<Vector2>());
+
+            if (Camera.main is null) return;
+            var cameraPos = Camera.main.transform;
+            cameraPos.SetParent(camera);
+            cameraPos.localPosition = Vector3.zero;
         }
 
         private void OnLook(Vector2 value)
         {
             if (!isLocalPlayer) return;
 
-            CmdMovementInput(value);
+            _input = value;
         }
 
-        [Command]
-        private void CmdLook(float pitch, float yaw)
+        [Client]
+        private void Look(float pitch, float yaw)
         {
             _xRotation -= pitch;
 
@@ -52,12 +51,6 @@ namespace Player
 
             camera.localRotation = Quaternion.Euler(Vector3.right * _xRotation);
             _pos.Rotate(Vector3.up * yaw);
-        }
-
-        [Command]
-        private void CmdMovementInput(Vector2 input)
-        {
-            _input = input;
         }
     }
 }

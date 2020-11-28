@@ -11,7 +11,6 @@ namespace Player
         private PlayerInput _controls;
         private Vector3 _input;
         private Transform _pos;
-        private Vector3 _previousInput;
         private Rigidbody _rb;
         private Vector3 _velocity;
 
@@ -23,26 +22,21 @@ namespace Player
             _velocity = direction * speed + Vector3.up * _rb.velocity.y;
 
             if (_rb.velocity != _velocity)
-                CmdMove(_velocity);
-
-            _previousInput = _input;
+                Move(_velocity);
         }
 
         private void OnMove(Vector2 value)
         {
             if (!isLocalPlayer) return;
 
-            var input = new Vector3(value.x, 0f, value.y);
-
-            if (input != _previousInput)
-                CmdMovementInput(input);
+            _input = new Vector3(value.x, 0f, value.y);
         }
 
         private void OnJump()
         {
             if (!isLocalPlayer || !IsGrounded()) return;
 
-            CmdJump();
+            Jump();
         }
 
         public override void OnStartLocalPlayer()
@@ -61,22 +55,16 @@ namespace Player
             return Physics.CheckSphere(groundCheck.position, 0.15f, LayerMask.GetMask("Ground"));
         }
 
-        [Command]
-        private void CmdMove(Vector3 velocity)
+        [Client]
+        private void Move(Vector3 velocity)
         {
             _rb.velocity = velocity;
         }
 
-        [Command]
-        private void CmdJump()
+        [Client]
+        private void Jump()
         {
             _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-
-        [Command]
-        private void CmdMovementInput(Vector3 input)
-        {
-            _input = input;
         }
     }
 }
