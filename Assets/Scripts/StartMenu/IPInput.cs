@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 
 namespace StartMenu
@@ -6,6 +7,7 @@ namespace StartMenu
     public class IPInput : MonoBehaviour
     {
         private const string PlayerPrefsIPKey = "IP";
+        public string IP { get; private set; }
 
         public TMP_InputField inputField;
 
@@ -19,6 +21,14 @@ namespace StartMenu
             if (!PlayerPrefs.HasKey(PlayerPrefsIPKey)) return;
 
             inputField.text = PlayerPrefs.GetString(PlayerPrefsIPKey);
+        }
+
+        [UsedImplicitly]
+        public void OnSetIP()
+        {
+            IP = inputField.text;
+            
+            PlayerPrefs.SetString(PlayerPrefsIPKey, IP);
         }
     }
 }
