@@ -24,11 +24,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StartMenu/LobbyNetworkManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StartMenu/LobbyNetworkManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/LobbyNetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartMenu/LobbyNetworkManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +61,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/NetworkManagerLobby.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/IPInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/NicknameInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Mirror/Runtime/NetworkManagerHUD.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/LobbyNetworkManager.cs" />
       </list>
     </option>
@@ -160,7 +159,8 @@
       <workItem from="1606632979850" duration="2123000" />
       <workItem from="1606648800977" duration="2105000" />
       <workItem from="1606657147849" duration="614000" />
-      <workItem from="1606662102339" duration="1870000" />
+      <workItem from="1606662102339" duration="2003000" />
+      <workItem from="1606671609904" duration="439000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed smooth deceleration">
       <created>1605957318643</created>
