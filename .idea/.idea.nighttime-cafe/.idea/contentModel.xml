@@ -266,6 +266,11 @@
             <e p="PlayerInput.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
+          <e p="StartMenu" t="Include">
+            <e p="IPInput.cs" t="Include" />
+            <e p="NetworkManagerLobby.cs" t="Include" />
+            <e p="NicknameInput.cs" t="Include" />
+          </e>
         </e>
         <e p="ScriptTemplates" t="Include">
           <e p="50-Mirror__Network Manager-NewNetworkManager.cs.txt" t="Include" />
