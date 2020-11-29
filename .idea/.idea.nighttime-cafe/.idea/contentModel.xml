@@ -268,6 +268,7 @@
           </e>
           <e p="StartMenu" t="Include">
             <e p="IPInput.cs" t="Include" />
+            <e p="LobbyNetworkManager.cs" t="Include" />
             <e p="NicknameInput.cs" t="Include" />
           </e>
         </e>
