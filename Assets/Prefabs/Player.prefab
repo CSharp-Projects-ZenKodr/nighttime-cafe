@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 3598849212446291414}
   - component: {fileID: 7637165351530887439}
   - component: {fileID: 3214836561778600780}
+  - component: {fileID: 4258397140194558395}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,7 +206,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -255,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0
   clientAuthority: 1
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
@@ -276,6 +277,28 @@ MonoBehaviour:
   syncInterval: 0.1
   camera: {fileID: 8121777251902453134}
   sensitivity: 20
+--- !u!114 &4258397140194558395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121777252324911662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83392ae5c1b731446909f252fd494ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 8121777252324911632}
+  clientAuthority: 1
+  syncVelocity: 1
+  clearVelocity: 0
+  velocitySensitivity: 0.1
+  syncAngularVelocity: 1
+  clearAngularVelocity: 0
+  angularVelocitySensitivity: 0.1
 --- !u!1 &8121777252739037370
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ namespace Player
             var direction = _pos.forward * _input.z + _pos.right * _input.x;
             _velocity = direction * speed + Vector3.up * _rb.velocity.y;
 
-            if (_rb.velocity != _velocity)
+            if (_rb.velocity != _velocity && IsGrounded())
                 Move(_velocity);
         }
 
@@ -43,6 +43,8 @@ namespace Player
         {
             _rb = GetComponent<Rigidbody>();
             _pos = GetComponent<Transform>();
+
+            _rb.isKinematic = false;
 
             _controls = new PlayerInput();
             _controls.Enable();
