@@ -6,12 +6,15 @@ namespace Player
     public class PlayerMovement : NetworkBehaviour
     {
         public float speed = 5f;
-        public Transform groundCheck;
         public float jumpForce = 3f;
-        private PlayerInput _controls;
-        private Vector3 _input;
+
+        public Transform groundCheck;
         private Transform _pos;
         private Rigidbody _rb;
+
+        private PlayerInput _controls;
+
+        private Vector3 _input;
         private Vector3 _velocity;
 
         private void Update()

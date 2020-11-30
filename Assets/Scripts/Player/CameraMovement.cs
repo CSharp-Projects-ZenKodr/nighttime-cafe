@@ -6,10 +6,12 @@ namespace Player
     public class CameraMovement : NetworkBehaviour
     {
         public new Transform camera;
-        public float sensitivity = 20f;
-        private PlayerInput _controls;
-        private Vector2 _input;
         private Transform _pos;
+        public float sensitivity = 20f;
+
+        private PlayerInput _controls;
+
+        private Vector2 _input;
         private float _xRotation;
         private float Pitch => _input.y * sensitivity * Time.deltaTime;
         private float Yaw => _input.x * sensitivity * Time.deltaTime;
