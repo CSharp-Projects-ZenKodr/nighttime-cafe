@@ -1,18 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Mirror;
 using UnityEngine;
 
-public class NicknameDisplay : MonoBehaviour
+namespace Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class NicknameDisplay : NetworkBehaviour
     {
-        
-    }
+        public TextMesh nicknameField;
+        public Transform floatingData;
+        private Camera _camera;
 
-    // Update is called once per frame
-    void Update()
-    {
+        [SyncVar(hook = nameof(OnNameChanged))] public string nickname;
         
+        private void Start()
+        {
+            _camera = Camera.main;
+        }
+
+        public override void OnStartClient()
+        {
+            CmdSetupNickname(PlayerPrefs.GetString("Nickname"));
+        }
+
+        private void Update()
+        {
+            if (isLocalPlayer) return;
+            floatingData.LookAt(_camera.transform);
+        }
+        
+        private void OnNameChanged(string old, string @new)
+        {
+            nicknameField.text = nickname;
+        }
+
+        [Command]
+        private void CmdSetupNickname(string value)
+        {
+            nickname = value;
+        }
     }
 }
