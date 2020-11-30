@@ -24,14 +24,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Networking.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Networking/MainNetworkManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Networking/MainNetworkManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/NetworkManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/NetworkManager.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/MainNetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Networking/MainNetworkManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/ConnectionButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/ConnectionButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/IPInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/IPInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/NicknameInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/NicknameInput.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartMenu/SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +55,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/fc/3f55d4d5/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mirror/Runtime/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartMenu/IPInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Networking/MainNetworkManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -64,13 +70,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Start Menu/NicknameInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/NetworkManagerLobby.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/IPInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/NicknameInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Mirror/Runtime/NetworkManagerHUD.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/LobbyNetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/ConnectionButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/HostButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Networking/MainNetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/IPInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/SceneLoader.cs" />
       </list>
     </option>
@@ -174,7 +180,8 @@
       <workItem from="1606732330620" duration="995000" />
       <workItem from="1606736048421" duration="1275000" />
       <workItem from="1606737497849" duration="748000" />
-      <workItem from="1606743307157" duration="99000" />
+      <workItem from="1606743307157" duration="354000" />
+      <workItem from="1606744095960" duration="3658000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed smooth deceleration">
       <created>1605957318643</created>
@@ -218,10 +225,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="lol" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1606657619819">
+    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1606746365984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1606657619819" />
+    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1606746365984" />
     <state x="630" y="340" key="LayersDialog" timestamp="1606068668841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

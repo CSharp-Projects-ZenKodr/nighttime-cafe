@@ -270,9 +270,6 @@
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="StartMenu" t="Include">
-            <e p="ConnectionButton.cs" t="Include" />
-            <e p="IPInput.cs" t="Include" />
-            <e p="NicknameInput.cs" t="Include" />
             <e p="SceneLoader.cs" t="Include" />
           </e>
         </e>

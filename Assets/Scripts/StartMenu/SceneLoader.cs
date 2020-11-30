@@ -1,7 +1,7 @@
-﻿using JetBrains.Annotations;
+﻿using Mirror;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace StartMenu
 {
@@ -9,17 +9,22 @@ namespace StartMenu
     {
         private const string PlayerPrefsNicknameKey = "Nickname";
         private const string PlayerPrefsIPKey = "IP";
-        private const string PlayerPrefsConnectionKey = "Connection";
 
         public TMP_InputField nicknameInputField;
         public TMP_InputField ipInputField;
+
+        public Button hostButton;
+        public Button joinButton;
 
         private void Start()
         {
             SetUpNicknameField();
             SetUpIPField();
+
+            hostButton.onClick.AddListener(OnHost);
+            joinButton.onClick.AddListener(OnJoin);
         }
-        
+
         private void SetUpNicknameField()
         {
             if (!PlayerPrefs.HasKey(PlayerPrefsNicknameKey)) return;
@@ -34,21 +39,27 @@ namespace StartMenu
             ipInputField.text = PlayerPrefs.GetString(PlayerPrefsIPKey);
         }
 
-        private void SetPreferences()
+        private void OnHost()
+        {
+            PlayerPrefs.SetString(PlayerPrefsNicknameKey, nicknameInputField.text);
+
+            NetworkManager.singleton.StartHost();
+        }
+
+        private void OnJoin()
         {
             PlayerPrefs.SetString(PlayerPrefsNicknameKey, nicknameInputField.text);
             PlayerPrefs.SetString(PlayerPrefsIPKey, ipInputField.text);
-        }
 
-        [UsedImplicitly]
-        public void OnHost()
-        {
-            SetPreferences();
-            
-            PlayerPrefs.SetString(PlayerPrefsConnectionKey, "Host");
-            
-            // changing scene
-            SceneManager.LoadScene("Main");
+            try
+            {
+                NetworkManager.singleton.networkAddress = PlayerPrefs.GetString(PlayerPrefsIPKey);
+                NetworkManager.singleton.StartClient();
+            }
+            catch
+            {
+                Debug.Log("Invalid IP!");
+            }
         }
     }
 }
