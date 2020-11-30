@@ -19,35 +19,32 @@ namespace StartMenu
             SetUpNicknameField();
             SetUpIPField();
         }
-
-        private static bool HasKey(string key)
-        {
-            return PlayerPrefs.HasKey(key);
-        }
-
-        private static string GetPrefsValue(string key)
-        {
-            return PlayerPrefs.GetString(key);
-        }
-
+        
         private void SetUpNicknameField()
         {
-            if (!HasKey(PlayerPrefsNicknameKey)) return;
+            if (!PlayerPrefs.HasKey(PlayerPrefsNicknameKey)) return;
 
-            nicknameInputField.text = GetPrefsValue(PlayerPrefsNicknameKey);
+            nicknameInputField.text = PlayerPrefs.GetString(PlayerPrefsNicknameKey);
         }
 
         private void SetUpIPField()
         {
-            if (!HasKey(PlayerPrefsIPKey)) return;
+            if (!PlayerPrefs.HasKey(PlayerPrefsIPKey)) return;
 
-            ipInputField.text = GetPrefsValue(PlayerPrefsIPKey);
+            ipInputField.text = PlayerPrefs.GetString(PlayerPrefsIPKey);
+        }
+
+        private void SetPreferences()
+        {
+            PlayerPrefs.SetString(PlayerPrefsNicknameKey, nicknameInputField.text);
+            PlayerPrefs.SetString(PlayerPrefsIPKey, ipInputField.text);
         }
 
         [UsedImplicitly]
         public void OnHost()
         {
-            // haha yes dirty data pass
+            SetPreferences();
+            
             PlayerPrefs.SetString(PlayerPrefsConnectionKey, "Host");
             
             // changing scene

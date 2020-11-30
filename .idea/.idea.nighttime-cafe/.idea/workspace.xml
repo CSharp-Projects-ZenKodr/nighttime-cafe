@@ -24,13 +24,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StartMenu/ConnectionButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StartMenu/ConnectionButton.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/LobbyNetworkManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/LobbyNetworkManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartMenu/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartMenu/SceneLoader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +163,8 @@
       <workItem from="1606657147849" duration="614000" />
       <workItem from="1606662102339" duration="2003000" />
       <workItem from="1606671609904" duration="439000" />
-      <workItem from="1606729413243" duration="2077000" />
+      <workItem from="1606729413243" duration="2150000" />
+      <workItem from="1606732330620" duration="995000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed smooth deceleration">
       <created>1605957318643</created>
