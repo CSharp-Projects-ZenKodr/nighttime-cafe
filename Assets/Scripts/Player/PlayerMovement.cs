@@ -1,11 +1,14 @@
-﻿using Mirror;
+﻿using System;
+using Mirror;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerMovement : NetworkBehaviour
     {
-        public float speed = 5f;
+        public float maxSpeed = 5f;
+        public float accelerationModifier = 1f;
+        private float _speed;
         public float jumpForce = 3f;
 
         public Transform groundCheck;
@@ -15,17 +18,40 @@ namespace Player
         private PlayerInput _controls;
 
         private Vector3 _input;
+        private Vector3 _lastNotNullInput;
+        private Vector3 _previousInput;
         private Vector3 _velocity;
+
+        private enum MovementStates
+        {
+            Acceleration,
+            MaxSpeed,
+            Deceleration,
+            Stop
+        }
+
+        private MovementStates _state;
 
         private void Update()
         {
             if (!isLocalPlayer) return;
+            
+            if (_input != Vector3.zero) _lastNotNullInput = _input;
+            
+            SwitchStates();
+        }
 
-            var direction = _pos.forward * _input.z + _pos.right * _input.x;
-            _velocity = direction * speed + Vector3.up * _rb.velocity.y;
-
+        private void FixedUpdate()
+        {
+            SwitchSpeed();
+                        
             if (_rb.velocity != _velocity && IsGrounded())
                 Move(_velocity);
+        }
+
+        private void LateUpdate()
+        {
+            _previousInput = _input;
         }
 
         private void OnMove(Vector2 value)
@@ -33,6 +59,48 @@ namespace Player
             if (!isLocalPlayer) return;
 
             _input = new Vector3(value.x, 0f, value.y);
+        }
+
+        private void SwitchStates()
+        {
+            const float tolerance = 0.1f;
+
+            if (_previousInput == Vector3.zero && _input != Vector3.zero)
+                _state = MovementStates.Acceleration;
+            else if (_previousInput != Vector3.zero && _input == Vector3.zero)
+                _state = MovementStates.Deceleration;
+            else if (_state == MovementStates.Acceleration && Mathf.Abs(_speed - maxSpeed) <= tolerance)
+                _state = MovementStates.MaxSpeed;
+            else if (_state == MovementStates.Deceleration && _speed < tolerance)
+                _state = MovementStates.Stop;
+        }
+
+        private void SwitchSpeed()
+        {
+            switch (_state)
+            {
+                case MovementStates.Acceleration:
+                    _speed += accelerationModifier;
+                    break;
+                case MovementStates.MaxSpeed:
+                    _speed = maxSpeed;
+                    break;
+                case MovementStates.Deceleration:
+                    _speed -= accelerationModifier;
+                    break;
+                case MovementStates.Stop:
+                    _speed = 0f;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            var forward = _pos.forward;
+            var right = _pos.right;
+            var direction = _state == MovementStates.Deceleration
+                ? forward * _lastNotNullInput.z + right * _lastNotNullInput.x
+                : forward * _input.z + right * _input.x;
+            _velocity = direction * _speed + Vector3.up * _rb.velocity.y;
         }
 
         private void OnJump()

@@ -9,8 +9,9 @@ namespace Player
         public Transform floatingData;
         private Camera _camera;
 
-        [SyncVar(hook = nameof(OnNameChanged))] public string nickname;
-        
+        [SyncVar(hook = nameof(OnNameChanged))]
+        public string nickname;
+
         private void Start()
         {
             _camera = Camera.main;
@@ -26,7 +27,7 @@ namespace Player
             if (isLocalPlayer) return;
             floatingData.LookAt(_camera.transform);
         }
-        
+
         private void OnNameChanged(string old, string @new)
         {
             nicknameField.text = nickname;
