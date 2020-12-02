@@ -525,7 +525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5673307594668465607, guid: 3845873eddf590d48b5ac8b89a170197, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5673307594668465607, guid: 3845873eddf590d48b5ac8b89a170197, type: 3}
       propertyPath: m_AngularDrag
@@ -579,5 +579,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lit Cube
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1119746585464047187, guid: 3845873eddf590d48b5ac8b89a170197, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3845873eddf590d48b5ac8b89a170197, type: 3}
