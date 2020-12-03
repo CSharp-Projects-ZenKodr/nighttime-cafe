@@ -43,7 +43,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""SprintOn"",
+                    ""name"": ""SprintEnter"",
                     ""type"": ""Button"",
                     ""id"": ""a7d822d5-4f04-4295-804b-ac45e16fbf1b"",
                     ""expectedControlType"": ""Button"",
@@ -51,9 +51,25 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""SprintOff"",
+                    ""name"": ""SprintExit"",
                     ""type"": ""Button"",
                     ""id"": ""6586e218-f71f-4ceb-b7b5-e7c548eabd47"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""GrabEnter"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e3c8908-cc43-4765-a7e0-162b7cbf62c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""GrabExit"",
+                    ""type"": ""Button"",
+                    ""id"": ""02bd14dc-a34b-46c1-9812-15c2f36f7288"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -227,23 +243,23 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b86cba73-667f-4845-aaab-38f10f9633c0"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""SprintOn"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""aaa692b8-ae78-4dcf-ad60-3f6ba3c0c19f"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Mouse & Keyboard"",
-                    ""action"": ""SprintOn"",
+                    ""action"": ""SprintEnter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b86cba73-667f-4845-aaab-38f10f9633c0"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SprintEnter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -254,7 +270,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""SprintOff"",
+                    ""action"": ""SprintExit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -265,7 +281,40 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": ""Mouse & Keyboard"",
-                    ""action"": ""SprintOff"",
+                    ""action"": ""SprintExit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54e5dfd5-e857-4645-8950-e4cae6442263"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""GrabEnter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ca87c2d-3dbf-4753-8b3a-160cee7efec1"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""GrabEnter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""019e994e-91db-4d76-b919-2281b2d1e156"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""GrabExit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -307,8 +356,10 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_SprintOn = m_Player.FindAction("SprintOn", throwIfNotFound: true);
-        m_Player_SprintOff = m_Player.FindAction("SprintOff", throwIfNotFound: true);
+        m_Player_SprintEnter = m_Player.FindAction("SprintEnter", throwIfNotFound: true);
+        m_Player_SprintExit = m_Player.FindAction("SprintExit", throwIfNotFound: true);
+        m_Player_GrabEnter = m_Player.FindAction("GrabEnter", throwIfNotFound: true);
+        m_Player_GrabExit = m_Player.FindAction("GrabExit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -361,8 +412,10 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_SprintOn;
-    private readonly InputAction m_Player_SprintOff;
+    private readonly InputAction m_Player_SprintEnter;
+    private readonly InputAction m_Player_SprintExit;
+    private readonly InputAction m_Player_GrabEnter;
+    private readonly InputAction m_Player_GrabExit;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -370,8 +423,10 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @SprintOn => m_Wrapper.m_Player_SprintOn;
-        public InputAction @SprintOff => m_Wrapper.m_Player_SprintOff;
+        public InputAction @SprintEnter => m_Wrapper.m_Player_SprintEnter;
+        public InputAction @SprintExit => m_Wrapper.m_Player_SprintExit;
+        public InputAction @GrabEnter => m_Wrapper.m_Player_GrabEnter;
+        public InputAction @GrabExit => m_Wrapper.m_Player_GrabExit;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -390,12 +445,18 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @SprintOn.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
-                @SprintOn.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
-                @SprintOn.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
-                @SprintOff.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
-                @SprintOff.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
-                @SprintOff.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
+                @SprintEnter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
+                @SprintEnter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
+                @SprintEnter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
+                @SprintExit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
+                @SprintExit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
+                @SprintExit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
+                @GrabEnter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
+                @GrabEnter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
+                @GrabEnter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
+                @GrabExit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
+                @GrabExit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
+                @GrabExit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -409,12 +470,18 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @SprintOn.started += instance.OnSprintOn;
-                @SprintOn.performed += instance.OnSprintOn;
-                @SprintOn.canceled += instance.OnSprintOn;
-                @SprintOff.started += instance.OnSprintOff;
-                @SprintOff.performed += instance.OnSprintOff;
-                @SprintOff.canceled += instance.OnSprintOff;
+                @SprintEnter.started += instance.OnSprintEnter;
+                @SprintEnter.performed += instance.OnSprintEnter;
+                @SprintEnter.canceled += instance.OnSprintEnter;
+                @SprintExit.started += instance.OnSprintExit;
+                @SprintExit.performed += instance.OnSprintExit;
+                @SprintExit.canceled += instance.OnSprintExit;
+                @GrabEnter.started += instance.OnGrabEnter;
+                @GrabEnter.performed += instance.OnGrabEnter;
+                @GrabEnter.canceled += instance.OnGrabEnter;
+                @GrabExit.started += instance.OnGrabExit;
+                @GrabExit.performed += instance.OnGrabExit;
+                @GrabExit.canceled += instance.OnGrabExit;
             }
         }
     }
@@ -442,7 +509,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnSprintOn(InputAction.CallbackContext context);
-        void OnSprintOff(InputAction.CallbackContext context);
+        void OnSprintEnter(InputAction.CallbackContext context);
+        void OnSprintExit(InputAction.CallbackContext context);
+        void OnGrabEnter(InputAction.CallbackContext context);
+        void OnGrabExit(InputAction.CallbackContext context);
     }
 }

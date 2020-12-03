@@ -1,4 +1,6 @@
-﻿using Mirror;
+﻿using System;
+using System.Net;
+using Mirror;
 using UnityEngine;
 
 namespace Player

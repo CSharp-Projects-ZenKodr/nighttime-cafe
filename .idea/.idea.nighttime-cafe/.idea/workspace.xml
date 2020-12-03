@@ -24,9 +24,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f623b45-75d7-443f-8176-45339c95467c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.nighttime-cafe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Lit Cube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Lit Cube.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.inputactions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.inputactions.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PropsGrab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PropsGrab.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +73,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Networking/MainNetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/IPInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenu/SceneLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/NicknameDisplay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Props.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PropsGrab.cs" />
       </list>
     </option>
@@ -224,10 +232,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="lol" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1606825072612">
+    <state x="761" y="391" width="678" height="497" key="#Code_Cleanup_Options" timestamp="1606987619920">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1606825072612" />
+    <state x="761" y="391" width="678" height="497" key="#Code_Cleanup_Options/0.0.1920.1040@0.0.1920.1040" timestamp="1606987619920" />
+    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1606987620904">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="732" y="390" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1606987620904" />
     <state x="630" y="340" key="LayersDialog" timestamp="1606068668841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -236,10 +248,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="730" y="216" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1605981082181" />
-    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1606737538481">
+    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1606988424100">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606737538481" />
+    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606988424100" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1606069974651">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -256,10 +268,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" key="dock-window-2/0.0.1920.1040@0.0.1920.1040" timestamp="1606650663621" />
-    <state x="777" y="403" width="490" height="396" key="scopes" timestamp="1606417398809">
+    <state x="777" y="403" width="490" height="396" key="scopes" timestamp="1606987468616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="403" width="490" height="396" key="scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1606417398809" />
+    <state x="777" y="403" width="490" height="396" key="scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1606987468616" />
     <state x="648" y="254" key="search.everywhere.popup" timestamp="1605895340765">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
