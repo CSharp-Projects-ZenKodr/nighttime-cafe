@@ -271,7 +271,7 @@
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PropsGrab.cs" t="Include" />
           </e>
-          <e p="Props.cs" t="Include" />
+          <e p="PlayerInput.cs" t="Include" />
           <e p="StartMenu" t="Include">
             <e p="SceneLoader.cs" t="Include" />
           </e>

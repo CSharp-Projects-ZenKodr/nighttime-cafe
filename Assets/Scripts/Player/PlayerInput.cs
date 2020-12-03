@@ -1,30 +1,17 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/PlayerInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Player/PlayerInput.inputactions'
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
-using Object = UnityEngine.Object;
 
-namespace Player
+public class @PlayerInput : IInputActionCollection, IDisposable
 {
-    public class PlayerInput : IInputActionCollection, IDisposable
+    public InputActionAsset asset { get; }
+    public @PlayerInput()
     {
-        // Player
-        private readonly InputActionMap m_Player;
-        private readonly InputAction m_Player_Jump;
-        private readonly InputAction m_Player_Look;
-        private readonly InputAction m_Player_Move;
-        private readonly InputAction m_Player_SprintOff;
-        private readonly InputAction m_Player_SprintOn;
-        private int m_GamepadSchemeIndex = -1;
-        private int m_MouseKeyboardSchemeIndex = -1;
-        private IPlayerActions m_PlayerActionsCallbackInterface;
-
-        public PlayerInput()
-        {
-            asset = InputActionAsset.FromJson(@"{
+        asset = InputActionAsset.FromJson(@"{
     ""name"": ""PlayerInput"",
     ""maps"": [
         {
@@ -315,166 +302,147 @@ namespace Player
         }
     ]
 }");
-            // Player
-            m_Player = asset.FindActionMap("Player", true);
-            m_Player_Move = m_Player.FindAction("Move", true);
-            m_Player_Look = m_Player.FindAction("Look", true);
-            m_Player_Jump = m_Player.FindAction("Jump", true);
-            m_Player_SprintOn = m_Player.FindAction("SprintOn", true);
-            m_Player_SprintOff = m_Player.FindAction("SprintOff", true);
-        }
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_SprintOn = m_Player.FindAction("SprintOn", throwIfNotFound: true);
+        m_Player_SprintOff = m_Player.FindAction("SprintOff", throwIfNotFound: true);
+    }
 
-        private InputActionAsset asset { get; }
-        public PlayerActions Player => new PlayerActions(this);
+    public void Dispose()
+    {
+        UnityEngine.Object.Destroy(asset);
+    }
 
-        public InputControlScheme MouseKeyboardScheme
+    public InputBinding? bindingMask
+    {
+        get => asset.bindingMask;
+        set => asset.bindingMask = value;
+    }
+
+    public ReadOnlyArray<InputDevice>? devices
+    {
+        get => asset.devices;
+        set => asset.devices = value;
+    }
+
+    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
+
+    public bool Contains(InputAction action)
+    {
+        return asset.Contains(action);
+    }
+
+    public IEnumerator<InputAction> GetEnumerator()
+    {
+        return asset.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+
+    public void Enable()
+    {
+        asset.Enable();
+    }
+
+    public void Disable()
+    {
+        asset.Disable();
+    }
+
+    // Player
+    private readonly InputActionMap m_Player;
+    private IPlayerActions m_PlayerActionsCallbackInterface;
+    private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_SprintOn;
+    private readonly InputAction m_Player_SprintOff;
+    public struct PlayerActions
+    {
+        private @PlayerInput m_Wrapper;
+        public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @SprintOn => m_Wrapper.m_Player_SprintOn;
+        public InputAction @SprintOff => m_Wrapper.m_Player_SprintOff;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerActions instance)
         {
-            get
+            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                if (m_MouseKeyboardSchemeIndex == -1)
-                    m_MouseKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse & Keyboard");
-                return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
+                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @SprintOn.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
+                @SprintOn.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
+                @SprintOn.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
+                @SprintOff.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
+                @SprintOff.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
+                @SprintOff.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
+            }
+            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+                @SprintOn.started += instance.OnSprintOn;
+                @SprintOn.performed += instance.OnSprintOn;
+                @SprintOn.canceled += instance.OnSprintOn;
+                @SprintOff.started += instance.OnSprintOff;
+                @SprintOff.performed += instance.OnSprintOff;
+                @SprintOff.canceled += instance.OnSprintOff;
             }
         }
-
-        public InputControlScheme GamepadScheme
+    }
+    public PlayerActions @Player => new PlayerActions(this);
+    private int m_MouseKeyboardSchemeIndex = -1;
+    public InputControlScheme MouseKeyboardScheme
+    {
+        get
         {
-            get
-            {
-                if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
-                return asset.controlSchemes[m_GamepadSchemeIndex];
-            }
+            if (m_MouseKeyboardSchemeIndex == -1) m_MouseKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse & Keyboard");
+            return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
         }
-
-        public void Dispose()
+    }
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
         {
-            Object.Destroy(asset);
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
         }
-
-        public InputBinding? bindingMask
-        {
-            get => asset.bindingMask;
-            set => asset.bindingMask = value;
-        }
-
-        public ReadOnlyArray<InputDevice>? devices
-        {
-            get => asset.devices;
-            set => asset.devices = value;
-        }
-
-        public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
-
-        public bool Contains(InputAction action)
-        {
-            return asset.Contains(action);
-        }
-
-        public IEnumerator<InputAction> GetEnumerator()
-        {
-            return asset.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public void Enable()
-        {
-            asset.Enable();
-        }
-
-        public void Disable()
-        {
-            asset.Disable();
-        }
-
-        public readonly struct PlayerActions
-        {
-            private readonly PlayerInput m_Wrapper;
-
-            public PlayerActions(PlayerInput wrapper)
-            {
-                m_Wrapper = wrapper;
-            }
-
-            public InputAction Move => m_Wrapper.m_Player_Move;
-            public InputAction Look => m_Wrapper.m_Player_Look;
-            public InputAction Jump => m_Wrapper.m_Player_Jump;
-            public InputAction SprintOn => m_Wrapper.m_Player_SprintOn;
-            public InputAction SprintOff => m_Wrapper.m_Player_SprintOff;
-
-            public InputActionMap Get()
-            {
-                return m_Wrapper.m_Player;
-            }
-
-            public void Enable()
-            {
-                Get().Enable();
-            }
-
-            public void Disable()
-            {
-                Get().Disable();
-            }
-
-            public bool enabled => Get().enabled;
-
-            public static implicit operator InputActionMap(PlayerActions set)
-            {
-                return set.Get();
-            }
-
-            public void SetCallbacks(IPlayerActions instance)
-            {
-                if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
-                {
-                    Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                    Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                    Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                    Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    SprintOn.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
-                    SprintOn.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
-                    SprintOn.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOn;
-                    SprintOff.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
-                    SprintOff.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
-                    SprintOff.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintOff;
-                }
-
-                m_Wrapper.m_PlayerActionsCallbackInterface = instance;
-                if (instance == null) return;
-                Move.started += instance.OnMove;
-                Move.performed += instance.OnMove;
-                Move.canceled += instance.OnMove;
-                Look.started += instance.OnLook;
-                Look.performed += instance.OnLook;
-                Look.canceled += instance.OnLook;
-                Jump.started += instance.OnJump;
-                Jump.performed += instance.OnJump;
-                Jump.canceled += instance.OnJump;
-                SprintOn.started += instance.OnSprintOn;
-                SprintOn.performed += instance.OnSprintOn;
-                SprintOn.canceled += instance.OnSprintOn;
-                SprintOff.started += instance.OnSprintOff;
-                SprintOff.performed += instance.OnSprintOff;
-                SprintOff.canceled += instance.OnSprintOff;
-            }
-        }
-
-        public interface IPlayerActions
-        {
-            void OnMove(InputAction.CallbackContext context);
-            void OnLook(InputAction.CallbackContext context);
-            void OnJump(InputAction.CallbackContext context);
-            void OnSprintOn(InputAction.CallbackContext context);
-            void OnSprintOff(InputAction.CallbackContext context);
-        }
+    }
+    public interface IPlayerActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnSprintOn(InputAction.CallbackContext context);
+        void OnSprintOff(InputAction.CallbackContext context);
     }
 }
