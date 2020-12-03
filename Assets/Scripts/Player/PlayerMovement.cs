@@ -24,10 +24,10 @@ namespace Player
 
         private enum MovementStates
         {
+            Stop,
             Acceleration,
             MaxSpeed,
-            Deceleration,
-            Stop
+            Deceleration
         }
 
         private MovementStates _state;
@@ -35,16 +35,16 @@ namespace Player
         private void Update()
         {
             if (!isLocalPlayer) return;
-            
+
             if (_input != Vector3.zero) _lastNotNullInput = _input;
-            
+
             SwitchStates();
         }
 
         private void FixedUpdate()
         {
             SwitchSpeed();
-                        
+
             if (_rb.velocity != _velocity && IsGrounded())
                 Move(_velocity);
         }

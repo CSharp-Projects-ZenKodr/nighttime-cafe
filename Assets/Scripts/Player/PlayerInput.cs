@@ -6,12 +6,15 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @PlayerInput : IInputActionCollection, IDisposable
+namespace Player
 {
-    public InputActionAsset asset { get; }
-    public @PlayerInput()
+    public class @PlayerInput : IInputActionCollection, IDisposable
     {
-        asset = InputActionAsset.FromJson(@"{
+        public InputActionAsset asset { get; }
+
+        public @PlayerInput()
+        {
+            asset = InputActionAsset.FromJson(@"{
     ""name"": ""PlayerInput"",
     ""maps"": [
         {
@@ -351,167 +354,199 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         }
     ]
 }");
+            // Player
+            m_Player = asset.FindActionMap("Player", true);
+            m_Player_Move = m_Player.FindAction("Move", true);
+            m_Player_Look = m_Player.FindAction("Look", true);
+            m_Player_Jump = m_Player.FindAction("Jump", true);
+            m_Player_SprintEnter = m_Player.FindAction("SprintEnter", true);
+            m_Player_SprintExit = m_Player.FindAction("SprintExit", true);
+            m_Player_GrabEnter = m_Player.FindAction("GrabEnter", true);
+            m_Player_GrabExit = m_Player.FindAction("GrabExit", true);
+        }
+
+        public void Dispose()
+        {
+            UnityEngine.Object.Destroy(asset);
+        }
+
+        public InputBinding? bindingMask
+        {
+            get => asset.bindingMask;
+            set => asset.bindingMask = value;
+        }
+
+        public ReadOnlyArray<InputDevice>? devices
+        {
+            get => asset.devices;
+            set => asset.devices = value;
+        }
+
+        public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
+
+        public bool Contains(InputAction action)
+        {
+            return asset.Contains(action);
+        }
+
+        public IEnumerator<InputAction> GetEnumerator()
+        {
+            return asset.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public void Enable()
+        {
+            asset.Enable();
+        }
+
+        public void Disable()
+        {
+            asset.Disable();
+        }
+
         // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_SprintEnter = m_Player.FindAction("SprintEnter", throwIfNotFound: true);
-        m_Player_SprintExit = m_Player.FindAction("SprintExit", throwIfNotFound: true);
-        m_Player_GrabEnter = m_Player.FindAction("GrabEnter", throwIfNotFound: true);
-        m_Player_GrabExit = m_Player.FindAction("GrabExit", throwIfNotFound: true);
-    }
+        private readonly InputActionMap m_Player;
+        private IPlayerActions m_PlayerActionsCallbackInterface;
+        private readonly InputAction m_Player_Move;
+        private readonly InputAction m_Player_Look;
+        private readonly InputAction m_Player_Jump;
+        private readonly InputAction m_Player_SprintEnter;
+        private readonly InputAction m_Player_SprintExit;
+        private readonly InputAction m_Player_GrabEnter;
+        private readonly InputAction m_Player_GrabExit;
 
-    public void Dispose()
-    {
-        UnityEngine.Object.Destroy(asset);
-    }
-
-    public InputBinding? bindingMask
-    {
-        get => asset.bindingMask;
-        set => asset.bindingMask = value;
-    }
-
-    public ReadOnlyArray<InputDevice>? devices
-    {
-        get => asset.devices;
-        set => asset.devices = value;
-    }
-
-    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
-
-    public bool Contains(InputAction action)
-    {
-        return asset.Contains(action);
-    }
-
-    public IEnumerator<InputAction> GetEnumerator()
-    {
-        return asset.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public void Enable()
-    {
-        asset.Enable();
-    }
-
-    public void Disable()
-    {
-        asset.Disable();
-    }
-
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_SprintEnter;
-    private readonly InputAction m_Player_SprintExit;
-    private readonly InputAction m_Player_GrabEnter;
-    private readonly InputAction m_Player_GrabExit;
-    public struct PlayerActions
-    {
-        private @PlayerInput m_Wrapper;
-        public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @SprintEnter => m_Wrapper.m_Player_SprintEnter;
-        public InputAction @SprintExit => m_Wrapper.m_Player_SprintExit;
-        public InputAction @GrabEnter => m_Wrapper.m_Player_GrabEnter;
-        public InputAction @GrabExit => m_Wrapper.m_Player_GrabExit;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
+        public struct PlayerActions
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            private @PlayerInput m_Wrapper;
+
+            public PlayerActions(@PlayerInput wrapper)
             {
-                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @SprintEnter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
-                @SprintEnter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
-                @SprintEnter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
-                @SprintExit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
-                @SprintExit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
-                @SprintExit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
-                @GrabEnter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
-                @GrabEnter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
-                @GrabEnter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
-                @GrabExit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
-                @GrabExit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
-                @GrabExit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
+                m_Wrapper = wrapper;
             }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
-            if (instance != null)
+
+            public InputAction @Move => m_Wrapper.m_Player_Move;
+            public InputAction @Look => m_Wrapper.m_Player_Look;
+            public InputAction @Jump => m_Wrapper.m_Player_Jump;
+            public InputAction @SprintEnter => m_Wrapper.m_Player_SprintEnter;
+            public InputAction @SprintExit => m_Wrapper.m_Player_SprintExit;
+            public InputAction @GrabEnter => m_Wrapper.m_Player_GrabEnter;
+            public InputAction @GrabExit => m_Wrapper.m_Player_GrabExit;
+
+            public InputActionMap Get()
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
-                @SprintEnter.started += instance.OnSprintEnter;
-                @SprintEnter.performed += instance.OnSprintEnter;
-                @SprintEnter.canceled += instance.OnSprintEnter;
-                @SprintExit.started += instance.OnSprintExit;
-                @SprintExit.performed += instance.OnSprintExit;
-                @SprintExit.canceled += instance.OnSprintExit;
-                @GrabEnter.started += instance.OnGrabEnter;
-                @GrabEnter.performed += instance.OnGrabEnter;
-                @GrabEnter.canceled += instance.OnGrabEnter;
-                @GrabExit.started += instance.OnGrabExit;
-                @GrabExit.performed += instance.OnGrabExit;
-                @GrabExit.canceled += instance.OnGrabExit;
+                return m_Wrapper.m_Player;
+            }
+
+            public void Enable()
+            {
+                Get().Enable();
+            }
+
+            public void Disable()
+            {
+                Get().Disable();
+            }
+
+            public bool enabled => Get().enabled;
+
+            public static implicit operator InputActionMap(PlayerActions set)
+            {
+                return set.Get();
+            }
+
+            public void SetCallbacks(IPlayerActions instance)
+            {
+                if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+                {
+                    @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                    @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                    @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                    @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                    @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                    @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                    @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @SprintEnter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
+                    @SprintEnter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
+                    @SprintEnter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnter;
+                    @SprintExit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
+                    @SprintExit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
+                    @SprintExit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintExit;
+                    @GrabEnter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
+                    @GrabEnter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
+                    @GrabEnter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabEnter;
+                    @GrabExit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
+                    @GrabExit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
+                    @GrabExit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrabExit;
+                }
+
+                m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Move.started += instance.OnMove;
+                    @Move.performed += instance.OnMove;
+                    @Move.canceled += instance.OnMove;
+                    @Look.started += instance.OnLook;
+                    @Look.performed += instance.OnLook;
+                    @Look.canceled += instance.OnLook;
+                    @Jump.started += instance.OnJump;
+                    @Jump.performed += instance.OnJump;
+                    @Jump.canceled += instance.OnJump;
+                    @SprintEnter.started += instance.OnSprintEnter;
+                    @SprintEnter.performed += instance.OnSprintEnter;
+                    @SprintEnter.canceled += instance.OnSprintEnter;
+                    @SprintExit.started += instance.OnSprintExit;
+                    @SprintExit.performed += instance.OnSprintExit;
+                    @SprintExit.canceled += instance.OnSprintExit;
+                    @GrabEnter.started += instance.OnGrabEnter;
+                    @GrabEnter.performed += instance.OnGrabEnter;
+                    @GrabEnter.canceled += instance.OnGrabEnter;
+                    @GrabExit.started += instance.OnGrabExit;
+                    @GrabExit.performed += instance.OnGrabExit;
+                    @GrabExit.canceled += instance.OnGrabExit;
+                }
             }
         }
-    }
-    public PlayerActions @Player => new PlayerActions(this);
-    private int m_MouseKeyboardSchemeIndex = -1;
-    public InputControlScheme MouseKeyboardScheme
-    {
-        get
+
+        public PlayerActions @Player => new PlayerActions(this);
+        private int m_MouseKeyboardSchemeIndex = -1;
+
+        public InputControlScheme MouseKeyboardScheme
         {
-            if (m_MouseKeyboardSchemeIndex == -1) m_MouseKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse & Keyboard");
-            return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
+            get
+            {
+                if (m_MouseKeyboardSchemeIndex == -1)
+                    m_MouseKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse & Keyboard");
+                return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
+            }
         }
-    }
-    private int m_GamepadSchemeIndex = -1;
-    public InputControlScheme GamepadScheme
-    {
-        get
+
+        private int m_GamepadSchemeIndex = -1;
+
+        public InputControlScheme GamepadScheme
         {
-            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
-            return asset.controlSchemes[m_GamepadSchemeIndex];
+            get
+            {
+                if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+                return asset.controlSchemes[m_GamepadSchemeIndex];
+            }
         }
-    }
-    public interface IPlayerActions
-    {
-        void OnMove(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
-        void OnSprintEnter(InputAction.CallbackContext context);
-        void OnSprintExit(InputAction.CallbackContext context);
-        void OnGrabEnter(InputAction.CallbackContext context);
-        void OnGrabExit(InputAction.CallbackContext context);
+
+        public interface IPlayerActions
+        {
+            void OnMove(InputAction.CallbackContext context);
+            void OnLook(InputAction.CallbackContext context);
+            void OnJump(InputAction.CallbackContext context);
+            void OnSprintEnter(InputAction.CallbackContext context);
+            void OnSprintExit(InputAction.CallbackContext context);
+            void OnGrabEnter(InputAction.CallbackContext context);
+            void OnGrabExit(InputAction.CallbackContext context);
+        }
     }
 }

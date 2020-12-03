@@ -28,6 +28,7 @@ namespace Player
         {
             _pos = GetComponent<Transform>();
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
 
             _controls = new PlayerInput();
             _controls.Enable();

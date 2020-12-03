@@ -23,10 +23,10 @@ namespace Player
             if (Camera.main is null) return;
             var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-            if (!Physics.Raycast(ray, out var hit, 100)) return;
+            if (!Physics.Raycast(ray, out var hit, 2f)) return;
             if (!hit.transform.gameObject.CompareTag("Prop")) return;
             _prop = hit.transform.gameObject;
-            Debug.Log(_prop.name + " Hit!");
+            Debug.Log(_prop.name + " hit!");
         }
 
         private void OnGrabExit()
