@@ -17,7 +17,7 @@ namespace Player
             _camera = Camera.main;
         }
 
-        public override void OnStartClient()
+        public override void OnStartLocalPlayer()
         {
             CmdSetupNickname(PlayerPrefs.GetString("Nickname"));
         }

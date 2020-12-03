@@ -110,13 +110,16 @@ namespace Player
             Jump();
         }
 
-        public override void OnStartLocalPlayer()
+        private void Start()
         {
             _rb = GetComponent<Rigidbody>();
             _pos = GetComponent<Transform>();
 
             _rb.isKinematic = false;
+        }
 
+        public override void OnStartLocalPlayer()
+        {
             _controls = new PlayerInput();
             _controls.Enable();
             _controls.Player.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
