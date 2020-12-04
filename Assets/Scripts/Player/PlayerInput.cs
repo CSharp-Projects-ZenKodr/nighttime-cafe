@@ -9,6 +9,7 @@ using UnityEngine.InputSystem.Utilities;
 public class @PlayerInput : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
+
     public @PlayerInput()
     {
         asset = InputActionAsset.FromJson(@"{
@@ -333,13 +334,13 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     ]
 }");
         // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_SprintEnter = m_Player.FindAction("SprintEnter", throwIfNotFound: true);
-        m_Player_SprintExit = m_Player.FindAction("SprintExit", throwIfNotFound: true);
-        m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
+        m_Player = asset.FindActionMap("Player", true);
+        m_Player_Move = m_Player.FindAction("Move", true);
+        m_Player_Look = m_Player.FindAction("Look", true);
+        m_Player_Jump = m_Player.FindAction("Jump", true);
+        m_Player_SprintEnter = m_Player.FindAction("SprintEnter", true);
+        m_Player_SprintExit = m_Player.FindAction("SprintExit", true);
+        m_Player_Grab = m_Player.FindAction("Grab", true);
     }
 
     public void Dispose()
@@ -395,21 +396,45 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_SprintEnter;
     private readonly InputAction m_Player_SprintExit;
     private readonly InputAction m_Player_Grab;
+
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
-        public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+
+        public PlayerActions(@PlayerInput wrapper)
+        {
+            m_Wrapper = wrapper;
+        }
+
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @SprintEnter => m_Wrapper.m_Player_SprintEnter;
         public InputAction @SprintExit => m_Wrapper.m_Player_SprintExit;
         public InputAction @Grab => m_Wrapper.m_Player_Grab;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
+
+        public InputActionMap Get()
+        {
+            return m_Wrapper.m_Player;
+        }
+
+        public void Enable()
+        {
+            Get().Enable();
+        }
+
+        public void Disable()
+        {
+            Get().Disable();
+        }
+
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+
+        public static implicit operator InputActionMap(PlayerActions set)
+        {
+            return set.Get();
+        }
+
         public void SetCallbacks(IPlayerActions instance)
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
@@ -433,6 +458,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Grab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
                 @Grab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
             }
+
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
@@ -457,17 +483,22 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             }
         }
     }
+
     public PlayerActions @Player => new PlayerActions(this);
     private int m_MouseKeyboardSchemeIndex = -1;
+
     public InputControlScheme MouseKeyboardScheme
     {
         get
         {
-            if (m_MouseKeyboardSchemeIndex == -1) m_MouseKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse & Keyboard");
+            if (m_MouseKeyboardSchemeIndex == -1)
+                m_MouseKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse & Keyboard");
             return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
         }
     }
+
     private int m_GamepadSchemeIndex = -1;
+
     public InputControlScheme GamepadScheme
     {
         get
@@ -476,6 +507,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
+
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);

@@ -113,7 +113,7 @@ namespace Player
         private void Start()
         {
             _rb = GetComponent<Rigidbody>();
-            _pos = GetComponent<Transform>();
+            _pos = transform;
 
             _rb.isKinematic = false;
         }
