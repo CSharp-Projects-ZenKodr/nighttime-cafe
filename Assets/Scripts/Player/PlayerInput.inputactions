@@ -46,20 +46,12 @@
                     "interactions": ""
                 },
                 {
-                    "name": "GrabEnter",
+                    "name": "Grab",
                     "type": "Button",
                     "id": "9e3c8908-cc43-4765-a7e0-162b7cbf62c3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "GrabExit",
-                    "type": "Button",
-                    "id": "02bd14dc-a34b-46c1-9812-15c2f36f7288",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -279,7 +271,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "GrabEnter",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -287,21 +279,10 @@
                     "name": "",
                     "id": "1ca87c2d-3dbf-4753-8b3a-160cee7efec1",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Mouse & Keyboard",
-                    "action": "GrabEnter",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "019e994e-91db-4d76-b919-2281b2d1e156",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Press(behavior=1)",
-                    "processors": "",
-                    "groups": "Mouse & Keyboard",
-                    "action": "GrabExit",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

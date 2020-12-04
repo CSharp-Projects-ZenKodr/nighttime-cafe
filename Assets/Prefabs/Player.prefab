@@ -478,7 +478,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   grabPos: {fileID: 2535877453538156408}
-  maxVel: 1
+  maxVel: 5
 --- !u!1 &8121777252739037370
 GameObject:
   m_ObjectHideFlags: 0
