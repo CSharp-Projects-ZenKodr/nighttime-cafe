@@ -49,6 +49,7 @@ namespace Player
         {
             _isGrabbing = false;
 
+            _item.GetComponent<Collider>().enabled = true;
             _itemRb.useGravity = true;
             _item = null;
             _itemRb = null;
@@ -65,6 +66,8 @@ namespace Player
             _item = hit.transform.gameObject;
             _itemRb = _item.GetComponent<Rigidbody>();
             _itemRb.useGravity = false;
+
+            _item.GetComponent<Collider>().enabled = false;
 
             _isGrabbing = true;
 
